@@ -14,14 +14,18 @@ class SavedPage: BasePage {
         }
     }
     func assertTabAllArticles() {
-        allArticlesTab.isSelected
-        XCTAssertTrue(allArticlesTab.isVisible())
-        XCTAssertTrue(textNoSavedPagesYet.isVisible())
+        XCTContext.runActivity(named: "Проверяет что вкладка All articles выбрана и присутствует текст ") {_ in
+            allArticlesTab.isSelected
+            XCTAssertTrue(allArticlesTab.isVisible())
+            XCTAssertTrue(textNoSavedPagesYet.isVisible())
+        }
     }
     func assertTabReadingLists() {
-        readingListsTab.tap()
-        readingListsTab.isSelected
-        XCTAssertTrue(readingListsTab.isVisible())
-        XCTAssertTrue(textReadingLists.isVisible())
+        XCTContext.runActivity(named: "Проверяет что вкладка Reading lists выбрана и присутствует текст") {_ in
+            readingListsTab.tap()
+            readingListsTab.isSelected
+            XCTAssertTrue(readingListsTab.isVisible())
+            XCTAssertTrue(textReadingLists.isVisible())
+        }
     }
 }
