@@ -23,7 +23,6 @@ class SmokeTests: BaseTest {
         explorePage.openTab(named: .search)
         explorePage.assertTabIsSelected(named: .search)
     }
-    
     func testAssertContentsOnExplorePage() {
         explorePage.closeBannerBeforeOpeningWiki()
         explorePage.openTab(named: .explore)
@@ -67,5 +66,30 @@ class SmokeTests: BaseTest {
 
         let versionInApp = aboutTheApp.getVersionApp()
         XCTAssertTrue(version == versionInApp, "Версии не совпадают")
+    }
+    
+    func testAssertTextMenuOnSettingsPage() {
+        explorePage.closeBannerBeforeOpeningWiki()
+        explorePage.openTab(named: .explore)
+        explorePage.assertTabIsSelected(named: .explore)
+        explorePage.pressSettingsButton()
+        explorePage.assertTextOnPage("Log in")
+        explorePage.assertTextOnPage("Support Wikipedia")
+        explorePage.assertTextOnPage("My languages")
+        explorePage.assertTextOnPage("Search")
+        explorePage.assertTextOnPage("Explore feed")
+        explorePage.assertTextOnPage("Notifications")
+        explorePage.assertTextOnPage("Reading preferences")
+        explorePage.assertTextOnPage("Article storage and syncing")
+        explorePage.assertTextOnPage("Reading list danger zone")
+        explorePage.assertTextOnPage("Clear cached data")
+        explorePage.assertTextOnPage("Privacy policy")
+        explorePage.assertTextOnPage("Terms of Use")
+        explorePage.assertTextOnPage("Send usage reports")
+        explorePage.assertTextOnPage("Rate the app")
+        explorePage.assertTextOnPage("Help and feedback")
+        explorePage.assertTextOnPage("About the app")
+        
+        
     }
 }
