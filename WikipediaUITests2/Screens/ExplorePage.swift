@@ -17,13 +17,6 @@ class ExplorePage: BasePage {
         XCTContext.runActivity(named: "Нажимает на кнопку настройки") {_ in
             settingsButton.tapElement()
         }
-    }
-    
-    func assertTextOnPage(_ text: String) {
-        XCTContext.runActivity(named: "Скролит до элемента и проверяет его наличие") {_ in
-        let text = app.staticTexts[text]
-        scrollToElement(text)
-        XCTAssertTrue(text.isVisible())
-        }
-    }
+    }    
 }
+
