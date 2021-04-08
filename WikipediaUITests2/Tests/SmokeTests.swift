@@ -29,7 +29,7 @@ class SmokeTests: BaseTest {
         explorePage.openTab(named: .explore)
         explorePage.assertTextOnPage("Picture of the day")
         explorePage.assertTextOnPage("In the news")
-        explorePage.assertTextOnPage("Random article")
+        explorePage.assertTextOnPage("On this day")
         explorePage.assertTextOnPage("Yesterday")
     }
     
@@ -53,7 +53,7 @@ class SmokeTests: BaseTest {
         placesPage.assertTabIsSelected(named: .places)
         placesPage.searchPlaces(places)
         placesPage.pressFindPlaces(places)
-        placesPage.assertPlacesOnScreen(places)
+        placesPage.assertPlacesOnScreen("Canada\nCountry in North America")
     }
     
     func testAssertVersionApp() {

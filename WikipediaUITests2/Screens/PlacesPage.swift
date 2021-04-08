@@ -31,7 +31,7 @@ class PlacesPage: BasePage {
     
     func assertPlacesOnScreen(_ places: String) {
         XCTContext.runActivity(named: "Проверяет что отображается правильное место на карте") {_ in
-            let places = app.otherElements[places]
+            let places = app.otherElements.links[places]
             XCTAssertTrue(places.isVisible())
         }
     }
