@@ -98,4 +98,17 @@ class SmokeTests: BaseTest {
         savedPage.assertTabAllArticles()
         savedPage.assertTabReadingLists()
     }
+    
+    func testSearchTextOnSearchPage() {
+        let searchText = "Moscow"
+        explorePage.closeBannerBeforeOpeningWiki()
+        explorePage.openTab(named: .search)
+        explorePage.assertTabIsSelected(named: .search)
+        explorePage.setTextOnSearchWikipedia(searchText)
+        explorePage.pressButtonOnSearchKeyboard()
+        explorePage.tapFindText(searchText)
+        articlePage.assertFindText(searchText)
+        articlePage.assertFindText(searchText)
+        articlePage.pressNavigationBarButton()
+    }
 }

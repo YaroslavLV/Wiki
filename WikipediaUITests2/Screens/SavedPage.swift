@@ -2,8 +2,8 @@ import XCTest
 
 class SavedPage: BasePage {
     
-    private lazy var allArticlesTab = app.otherElements.staticTexts["All articles"]
-    private lazy var readingListsTab = app.otherElements.staticTexts["Reading lists"]
+    private lazy var allArticlesTab = app.otherElements.buttons["All articles"]
+    private lazy var readingListsTab = app.otherElements.buttons["Reading lists"]
     private lazy var textNoSavedPagesYet = app.otherElements.staticTexts["No saved pages yet"]
     private lazy var textReadingLists = app.otherElements.staticTexts["Organize saved articles with reading lists"]
     
@@ -15,7 +15,7 @@ class SavedPage: BasePage {
     }
     func assertTabAllArticles() {
         XCTContext.runActivity(named: "Проверяет что вкладка All articles выбрана и присутствует текст ") {_ in
-            allArticlesTab.isSelected
+            XCTAssertTrue(allArticlesTab.isSelected)
             XCTAssertTrue(allArticlesTab.isVisible())
             XCTAssertTrue(textNoSavedPagesYet.isVisible())
         }
@@ -23,7 +23,7 @@ class SavedPage: BasePage {
     func assertTabReadingLists() {
         XCTContext.runActivity(named: "Проверяет что вкладка Reading lists выбрана и присутствует текст") {_ in
             readingListsTab.tap()
-            readingListsTab.isSelected
+            XCTAssertTrue(readingListsTab.isSelected)
             XCTAssertTrue(readingListsTab.isVisible())
             XCTAssertTrue(textReadingLists.isVisible())
         }
